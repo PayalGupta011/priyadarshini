@@ -382,13 +382,13 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeBg: "#F6ECE0",
       iconColor: "#A77A27",
       items: [
-        { year: "2024", title: "FACOG (USA) – Fellow of the American College of Obstetricians and Gynecologists", desc: "Recognized with international fellowship for adherence to highest US clinical and ethical standards in women's healthcare." },
-        { year: "2023", title: "Masters in Minimally Invasive Surgery (Laparoscopy & Hysteroscopy)", desc: "Advanced surgical fellowship from Kiehls School, Germany, specializing in single-incision and keyhole gynaecological procedures." },
+        { year: "2024", title: "FACOG (USA) – Fellow of the American Congress of Obstetricians and Gynecologists", desc: "Recognized with international fellowship for adherence to highest US clinical and ethical standards in women's healthcare." },
+        { year: "2022", title: "MRCOG (London, UK) – Member of the Royal College of Obstetricians & Gynaecologists", desc: "Passed all rigorous UK royal college assessments on the very first attempt, upholding evidence-based UK clinical protocols." },
         { year: "2022", title: "EFOG-EBCOG – European Fellow of Obstetrics and Gynaecology", desc: "Certified by the European Board & College of Obstetrics and Gynaecology with full European clinical equivalence." },
-        { year: "2021", title: "MRCOG (London, UK) – Member of the Royal College of Obstetricians & Gynaecologists", desc: "Passed all rigorous UK royal college assessments on the very first attempt, upholding evidence-based UK clinical protocols." },
-        { year: "2018", title: "FMF Certification in Fetal Ultrasound & Screening (UK)", desc: "Certified by The Fetal Medicine Foundation, London, for 11-13 week NT scans, pre-eclampsia screening, and Doppler flow studies." },
-        { year: "2015", title: "DNB (Obstetrics & Gynaecology)", desc: "National Board of Examinations, New Delhi — awarded after 3 years intensive tertiary residency at Bangalore Medical College & Research Institute." },
-        { year: "2011", title: "MBBS – Bangalore Medical College & Research Institute (BMCRI)", desc: "Graduated with top academic standing and multiple distinctions from one of India's premier government medical institutes." }
+        { year: "2021", title: "Masters in Minimally Invasive Surgery (Laparoscopy & Hysteroscopy)", desc: "Advanced surgical fellowship from Kiehls School (Germany) & IBC Academies of Medical Excellence (Dubai), specializing in keyhole gynaecological procedures." },
+        { year: "FMF", title: "Competency Certification – The Fetal Medicine Foundation (UK)", desc: "Certified by FMF London for 11–13 week fetal screening, pre-eclampsia assessment, and Doppler flow evaluations." },
+        { year: "2016", title: "DNB (Obstetrics & Gynaecology) – Sri Gokulam Hospital, Salem, Tamil Nadu", desc: "Awarded by National Board of Examinations (New Delhi) following 3-year intensive tertiary residency in obstetrics and gynaecology." },
+        { year: "2012", title: "MBBS – Chettinad Hospital & Research Institute, Chennai", desc: "Awarded Best Outgoing Student (2006 Batch) with 7 Gold Medals and multiple academic distinctions across MBBS curriculum." }
       ]
     },
     clinical: {
@@ -398,12 +398,11 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeBg: "#E5F2EC",
       iconColor: "#237367",
       items: [
-        { year: "Present", title: "Specialist OBGYN – NMC Speciality Hospital, Abu Dhabi", desc: "Leading advanced high-risk obstetric deliveries, minimally invasive laparoscopic myomectomies/cystectomies, and specialized outpatient clinics." },
-        { year: "2021-23", title: "Specialist Obstetrician & Gynaecologist – LLH & Ahalia Hospitals, Abu Dhabi", desc: "Managed busy labor wards, emergency obstetric interventions, high-risk antenatal clinics, and elective laparoscopic procedures under HAAD GD37938." },
-        { year: "2019-21", title: "Specialist Gynaecologist – Keerthi & Brite Medical Centers, Dubai", desc: "Comprehensive women's healthcare services, fertility investigations, colposcopy, and adolescent clinics under DHA license 32916603." },
-        { year: "2016-19", title: "Consultant / Specialist OBGYN – Ovum Woman & Child Hospital, Bangalore", desc: "Senior obstetrician managing over 1,500 natural and assisted deliveries, high-risk twin pregnancies, and complex gynaecological surgeries." },
-        { year: "2015-16", title: "Senior Resident in High-Risk Obstetrics – Bowring & Lady Curzon Hospital", desc: "Supervised acute obstetric triage, pre-eclampsia ICU management, and post-graduate medical student teaching." },
-        { year: "Milestones", title: "Proven Clinical Track Record", desc: "Over 12,000+ happy consultations, 3,500+ successful normal and operative deliveries, and 850+ laparoscopic surgeries with zero major complications." }
+        { year: "Present", title: "Specialist OBGYN – NMC Speciality Hospital, Abu Dhabi", desc: "Leading advanced high-risk obstetric deliveries, minimally invasive laparoscopic myomectomies/cystectomies, and specialized outpatient clinics under HAAD GD37938." },
+        { year: "2021-25", title: "Specialist Obstetrician & Gynaecologist – LLH & Ahalia Hospitals, Abu Dhabi", desc: "Managed busy labor wards, emergency obstetric interventions, high-risk antenatal clinics, and elective laparoscopic procedures across major Abu Dhabi tertiary hospitals." },
+        { year: "2021", title: "Specialist Gynaecologist – Keerthi & Brite Medical Centers, Dubai", desc: "Comprehensive women's healthcare services, fertility investigations, colposcopy, and adolescent clinics." },
+        { year: "2018-21", title: "Consultant OBG – SM Hospital, Ooty", desc: "Senior obstetrician and gynaecologist managing maternal triage, high-risk deliveries, emergency surgical interventions, and inpatient obstetric care." },
+        { year: "2016-19", title: "Assistant Professor & Senior Resident – Medical College Hospitals", desc: "Clinical teaching and senior resident surgical duties at PK Das Institute of Medical Sciences & Karpagam Medical College, training resident doctors and supervising labour wards." }
       ]
     },
     awards: {
@@ -413,11 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeBg: "#FAECEB",
       iconColor: "#B85C5E",
       items: [
-        { year: "2023", title: "Clinical Excellence Award in Patient Care & Safety", desc: "Conferred at NMC Healthcare Forum for maintaining exemplary patient satisfaction ratings and exceptional surgical safety records." },
-        { year: "2021", title: "First-Attempt MRCOG Success Distinction", desc: "Commended for clearing all parts of the Royal College of Obstetricians & Gynaecologists (UK) examinations in first attempt." },
-        { year: "2015", title: "Gold Medal / Best Resident Candidate in DNB (OBG)", desc: "Recognized for clinical acumen, patient compassion, and scholarly excellence during postgraduate training." },
-        { year: "2014", title: "Best Paper Presentation Award – AICOG National Conference", desc: "Awarded top honor for research titled 'Maternal and Perinatal Outcomes in Severe Early-Onset Pre-eclampsia'." },
-        { year: "2011", title: "Academic Distinction in Obstetrics & Gynaecology (BMCRI)", desc: "Honored by the Department of Health for outstanding performance in clinical vivas and university examinations." }
+        { year: "2024", title: "UAE Next Mastermind Award – Outstanding Gynaecology Excellence", desc: "Honored with the prestigious UAE Next Mastermind Award 2024 in recognition of outstanding clinical skill and dedicated service in women's healthcare." },
+        { year: "2023", title: "Thanga Tharagai Award (Field of Medicine)", desc: "Presented by Honorable Minister Trichy Siva at ISC Abu Dhabi — recognizing eminent women of Tamil origin in the UAE for academic and community medical excellence (First of its kind in UAE)." },
+        { year: "2011", title: "Madras University Students Club Medal in General Surgery", desc: "Conferred by The Tamil Nadu Dr. M.G.R. Medical University for outstanding performance and highest distinction in General Surgery." },
+        { year: "2006", title: "Best Outgoing Student – Chettinad Health City", desc: "Awarded top honor as the Best Outgoing Student of the 2006 MBBS batch for academic leadership and clinical excellence." },
+        { year: "2006", title: "Seven Gold Medals During Undergraduate Course", desc: "Decorated with 7 Gold Medals across undergraduate medical subjects at Chettinad Health City." }
       ]
     },
     memberships: {
@@ -427,12 +426,14 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeBg: "#E7EFF7",
       iconColor: "#3B749E",
       items: [
-        { year: "UK", title: "RCOG – Royal College of Obstetricians and Gynaecologists, London", desc: "Active International Fellow / Member; participates regularly in RCOG world congresses and continuous professional development." },
-        { year: "USA", title: "ACOG – American College of Obstetricians and Gynecologists", desc: "Fellow (FACOG); follows clinical practice guidelines and latest American committee opinions." },
-        { year: "Europe", title: "EBCOG – European Board and College of Obstetrics and Gynaecology", desc: "Fellow (EFOG); recognized across European member states for high medical standards." },
-        { year: "London", title: "FMF – The Fetal Medicine Foundation, United Kingdom", desc: "Certified Ultrasound Practitioner with annual license audit for 11-13 week screening." },
-        { year: "India", title: "FOGSI – Federation of Obstetric and Gynaecological Societies of India", desc: "Life Member; contributing to adolescent healthcare initiatives and safe motherhood programs." },
-        { year: "National", title: "IMA – Indian Medical Association & GAPIO", desc: "Life member of Indian Medical Association & Global Association of Physicians of Indian Origin." }
+        { year: "Europe", title: "ESGE – European Society of Gynecological Endoscopy", desc: "Active member contributing to international surgical standards and innovations in minimally invasive gynaecology." },
+        { year: "UK", title: "MRCOG – Royal College of Obstetricians and Gynaecologists, London", desc: "Member (MRCOG); regularly participating in international congresses and adhering to evidence-based UK clinical practice." },
+        { year: "Europe", title: "EFOG – European Board & College of Obstetrics and Gynaecology", desc: "European Fellow (EFOG); recognized across European member states for clinical equivalence and surgical excellence." },
+        { year: "USA", title: "FACOG – American Congress of Obstetricians and Gynecologists", desc: "Fellow (FACOG); follows clinical practice guidelines and latest American committee opinions." },
+        { year: "Global", title: "ISUOG – International Society of Ultrasound in Obstetrics and Gynecology", desc: "Member dedicated to advancing ultrasound diagnostic excellence in obstetrics and gynaecology." },
+        { year: "London", title: "FMF – The Fetal Medicine Foundation, United Kingdom", desc: "Competency Certified in First Trimester Ultrasound (11–13 week fetal screening) with annual license audits." },
+        { year: "India", title: "FOGSI & IMA", desc: "Life Member of Federation of Obstetric and Gynaecological Societies of India & Indian Medical Association." },
+        { year: "Global", title: "ELMO & GAPIO", desc: "Member of European Lifestyle Medicine Organisation & Global Association of Physicians of Indian Origin." }
       ]
     },
     beyond: {
@@ -442,10 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeBg: "#F6EAEF",
       iconColor: "#924B69",
       items: [
+        { year: "StudyMEDIC", title: "Mentor – StudyMEDIC (MRCOG & EBCOG Training)", desc: "Senior mentor with StudyMEDIC (Oct 2021 to Present), an internationally accredited medical education platform, mentoring doctors worldwide for MRCOG and EBCOG qualifications." },
+        { year: "Medcafe", title: "Faculty & Educator – Medcafe Medical Platform", desc: "Active educator and contributor on the Medcafe medical education platform, leading specialized clinical discussions and knowledge sharing." },
         { year: "Advocacy", title: "Women's Health Literacy & Preventative Awareness", desc: "Frequently hosts community seminars in Abu Dhabi and Dubai on PCOS management, cervical cancer vaccination (HPV), and menopause wellness." },
-        { year: "Research", title: "Peer-Reviewed Publications & Clinical Audits", desc: "Published papers on gestational diabetes, trial of labour after caesarean (TOLAC/VBAC), and minimally invasive ovarian cystectomy." },
-        { year: "Mentorship", title: "Emergency Simulation & Training for Healthcare Staff", desc: "Active instructor for obstetric drill simulations (PPH, neonatal resuscitation, shoulder dystocia) for junior doctors and nurses." },
-        { year: "Languages", title: "Multilingual Patient Connection", desc: "Fluent in English, Hindi, Kannada, Tamil, and Telugu, with functional Arabic knowledge, ensuring clear, comfortable communication for all patients." }
+        { year: "Research", title: "Peer-Reviewed Publications & Clinical Audits", desc: "Presented and published research on gestational diabetes, trial of labour after caesarean (TOLAC/VBAC), and minimally invasive ovarian cystectomy." },
+        { year: "Languages", title: "Multilingual Patient Connection", desc: "Fluent in English, Tamil, Malayalam, Kannada, and Hindi (with functional Arabic), ensuring clear, comfortable communication for all patients." }
       ]
     },
     approach: {
@@ -458,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { year: "Listening", title: "Compassionate, Unhurried Consultation", desc: "'Every woman's journey is unique. I believe in giving every patient uninterrupted time to share her symptoms, concerns, and personal goals.'" },
         { year: "Care", title: "Evidence-Based & Minimally Invasive First", desc: "Committed to following strict RCOG & ACOG protocols — prioritizing natural birth when safe, conservative management, and keyhole surgery when needed." },
         { year: "Holistic", title: "Complete Physical & Emotional Support", desc: "Treating the whole person by addressing nutritional health, mental wellness, hormone balance, and preventative lifestyle alongside medical therapies." },
-        { year: "Licensed", title: "Dual UAE Licensing (HAAD & DHA)", desc: "Fully licensed by the Department of Health Abu Dhabi (HAAD GD37938) and Dubai Health Authority (DHA 32916603) for seamless care." }
+        { year: "HAAD", title: "Department of Health Abu Dhabi Licensed", desc: "Fully licensed as Specialist Obstetrician & Gynaecologist by the Department of Health Abu Dhabi (HAAD License: GD37938) for dedicated, comprehensive clinical care." }
       ]
     }
   };
@@ -582,14 +584,14 @@ document.addEventListener('DOMContentLoaded', () => {
       treatments: [
         { name: "Preconception Health & Fertility Optimization", desc: "Comprehensive health assessments, folic acid guidance, and lifestyle optimization before conception." },
         { name: "Routine Antenatal Care & Trimester Screenings", desc: "Evidence-based checkups, fetal heartbeat monitoring, blood work, and growth tracking." },
-        { name: "FMF-Certified Fetal Ultrasound & Anomaly Scans", desc: "11-13 week NT scan, first-trimester screening, and Doppler flow evaluations certified by FMF UK." },
+        { name: "FMF-Certified Fetal Scans", desc: "11–13 week NT scan, first-trimester screening, and Doppler flow evaluations certified by The Fetal Medicine Foundation (FMF UK)." },
         { name: "High-Risk Pregnancy Management", desc: "Specialist oversight for gestational diabetes, pre-eclampsia, thyroid disorders, and multiple gestations (twins/triplets)." },
         { name: "Safe Normal & Painless Epidural Deliveries", desc: "Promoting natural spontaneous birth with continuous fetal monitoring and modern analgesia options." },
         { name: "Planned & Emergency Caesarean Section (C-Section)", desc: "Expert surgical delivery with cosmetically refined incisions and rapid recovery protocols." },
         { name: "Vaginal Birth After Caesarean (VBAC / TOLAC)", desc: "Carefully evaluated and monitored trials of labor for mothers wishing to deliver vaginally after previous C-section." },
         { name: "Comprehensive Postnatal Care & Lactation Support", desc: "Post-delivery physical recovery, wound healing checks, breastfeeding guidance, and postpartum emotional wellness." }
       ],
-      credentialNote: "Over 3,500+ successful deliveries managed across NMC Speciality Hospital, Abu Dhabi and top tertiary maternal centers."
+      credentialNote: "5,000+ successful deliveries managed across various hospitals in UAE and India."
     },
     gynaecology: {
       number: "02",
@@ -600,8 +602,10 @@ document.addEventListener('DOMContentLoaded', () => {
       iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M12 11v11"/><path d="M8 17h8"/><path d="M5 8a7 7 0 0 0 14 0"/></svg>`,
       overview: "From adolescent menstrual concerns to complex reproductive conditions, Dr. Priya offers unhurried diagnostic evaluations and gentle, evidence-based treatments tailored to every woman's comfort.",
       treatments: [
+        { name: "Hormonal Disorders (Puberty to Menopause)", desc: "Comprehensive evaluation and personalized medical management of hormonal disturbances, cycle irregularities, and transition symptoms right from puberty up to menopause." },
+        { name: "Polycystic Ovary Syndrome (PCOS)", desc: "Holistic metabolic profiling, cycle regularization, weight management, and androgen balance." },
+        { name: "Breast Health Screening & Counseling", desc: "Clinical breast examination, screening for benign breast conditions, self-examination guidance, and referral counseling for mammography and ultrasound." },
         { name: "Abnormal Uterine Bleeding (AUB) & Heavy Periods", desc: "Modern diagnostic ultrasound, hormonal therapy, and minimally invasive options for menorrhagia." },
-        { name: "Polycystic Ovary Syndrome (PCOS / PCOD)", desc: "Holistic metabolic profiling, cycle regularization, weight management, and androgen balance." },
         { name: "Uterine Fibroids (Leiomyomas) Management", desc: "Medical and conservative surgical management to preserve fertility and eliminate pelvic heaviness." },
         { name: "Endometriosis & Chronic Pelvic Pain", desc: "Specialist staging and advanced treatment to relieve debilitating cycle pain and protect fertility." },
         { name: "Ovarian Cysts & Benign Pelvic Masses", desc: "Ultrasound surveillance and organ-preserving cyst removal (cystectomy)." },
