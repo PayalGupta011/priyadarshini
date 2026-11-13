@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { year: "2022", title: "MRCOG (London, UK) – Member of the Royal College of Obstetricians & Gynaecologists", desc: "Passed all rigorous UK royal college assessments on the very first attempt, upholding evidence-based UK clinical protocols." },
         { year: "2022", title: "EFOG-EBCOG – European Fellow of Obstetrics and Gynaecology", desc: "Certified by the European Board & College of Obstetrics and Gynaecology with full European clinical equivalence." },
         { year: "2021", title: "Masters in Minimally Invasive Surgery (Laparoscopy & Hysteroscopy)", desc: "Advanced surgical fellowship from Kiehls School (Germany) & IBC Academies of Medical Excellence (Dubai), specializing in keyhole gynaecological procedures." },
-        { year: "FMF", title: "Competency Certification – The Fetal Medicine Foundation (UK)", desc: "Certified by FMF London for 11–13 week fetal screening, pre-eclampsia assessment, and Doppler flow evaluations." },
+        { year: "2018", title: "Competency Certification – The Fetal Medicine Foundation (UK)", desc: "Certified by FMF London for 11–13 week fetal screening, pre-eclampsia assessment, and Doppler flow evaluations." },
         { year: "2016", title: "DNB (Obstetrics & Gynaecology) – Sri Gokulam Hospital, Salem, Tamil Nadu", desc: "Awarded by National Board of Examinations (New Delhi) following 3-year intensive tertiary residency in obstetrics and gynaecology." },
         { year: "2012", title: "MBBS – Chettinad Hospital & Research Institute, Chennai", desc: "Awarded Best Outgoing Student (2006 Batch) with 7 Gold Medals and multiple academic distinctions across MBBS curriculum." }
       ]
@@ -444,8 +444,8 @@ document.addEventListener('DOMContentLoaded', () => {
       iconColor: "#924B69",
       items: [
         { year: "StudyMEDIC", title: "Mentor – StudyMEDIC (MRCOG & EBCOG Training)", desc: "Senior mentor with StudyMEDIC (Oct 2021 to Present), an internationally accredited medical education platform, mentoring doctors worldwide for MRCOG and EBCOG qualifications." },
-        { year: "Medcafe", title: "Faculty & Educator – Medcafe Medical Platform", desc: "Active educator and contributor on the Medcafe medical education platform, leading specialized clinical discussions and knowledge sharing." },
-        { year: "Advocacy", title: "Women's Health Literacy & Preventative Awareness", desc: "Frequently hosts community seminars in Abu Dhabi and Dubai on PCOS management, cervical cancer vaccination (HPV), and menopause wellness." },
+        { year: "MedCafe", title: "Chief Executive Officer (CEO) – MedCafe", desc: "Leading MedCafe, a global collaborative platform for doctors, dedicated to fostering professional collaboration, medical knowledge exchange, education, and networking among healthcare professionals worldwide." },
+        { year: "Advocacy", title: "Women's Health Literacy & Preventative Awareness", desc: "Frequently hosts community seminars in Abu Dhabi and Dubai on PMOS management, cervical cancer vaccination (HPV), and menopause wellness." },
         { year: "Research", title: "Peer-Reviewed Publications & Clinical Audits", desc: "Presented and published research on gestational diabetes, trial of labour after caesarean (TOLAC/VBAC), and minimally invasive ovarian cystectomy." },
         { year: "Languages", title: "Multilingual Patient Connection", desc: "Fluent in English, Tamil, Malayalam, Kannada, and Hindi (with functional Arabic), ensuring clear, comfortable communication for all patients." }
       ]
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
       overview: "From adolescent menstrual concerns to complex reproductive conditions, Dr. Priya offers unhurried diagnostic evaluations and gentle, evidence-based treatments tailored to every woman's comfort.",
       treatments: [
         { name: "Hormonal Disorders (Puberty to Menopause)", desc: "Comprehensive evaluation and personalized medical management of hormonal disturbances, cycle irregularities, and transition symptoms right from puberty up to menopause." },
-        { name: "Polycystic Ovary Syndrome (PCOS)", desc: "Holistic metabolic profiling, cycle regularization, weight management, and androgen balance." },
+        { name: "PMOS Management", desc: "Holistic metabolic profiling, cycle regularization, weight management, and androgen balance." },
         { name: "Breast Health Screening & Counseling", desc: "Clinical breast examination, screening for benign breast conditions, self-examination guidance, and referral counseling for mammography and ultrasound." },
         { name: "Abnormal Uterine Bleeding (AUB) & Heavy Periods", desc: "Modern diagnostic ultrasound, hormonal therapy, and minimally invasive options for menorrhagia." },
         { name: "Uterine Fibroids (Leiomyomas) Management", desc: "Medical and conservative surgical management to preserve fertility and eliminate pelvic heaviness." },
@@ -667,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Comprehensive Couple Fertility Workup", desc: "Simultaneous evaluation of ovulatory, tubal, uterine, and partner semen factors." },
         { name: "Ovarian Reserve Testing & Follicular Tracking", desc: "AMH blood assays, antral follicle counts (AFC), and serial ultrasound ovulation tracking." },
         { name: "Tubal Patency Assessment (HyCoSy / HSG)", desc: "Gentle imaging examinations to confirm clear, open fallopian tubes." },
-        { name: "Ovulation Induction & Controlled Cycle Monitoring", desc: "Medically monitored oral or injectable protocols for anovulatory conditions (PCOS)." },
+        { name: "Ovulation Induction & Controlled Cycle Monitoring", desc: "Medically monitored oral or injectable protocols for anovulatory conditions (PMOS)." },
         { name: "Surgical Correction of Fertility Barriers", desc: "Minimally invasive removal of endometrial polyps, fibroids, or pelvic adhesions impeding conception." },
         { name: "Recurrent Pregnancy Loss (Miscarriage) Workup", desc: "Thrombophilia, autoimmune, hormonal, and anatomical investigations for repeated losses." },
         { name: "Pre-IVF Preparation & Optimization", desc: "Medical optimization of the uterine environment, endometrial lining, and egg quality prior to assisted reproduction." },
