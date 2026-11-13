@@ -5583,26 +5583,42 @@ body:not(.loaded) {
   }
   .c-quick-actions {
     flex-direction: column;
+    gap: 10px;
+  }
+  .c-btn-pill {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
   }
   .c-map-left {
     padding: 28px 20px;
   }
   .whatsapp-float {
-    bottom: 18px;
-    right: 16px;
-    width: 46px;
-    height: 46px;
-    z-index: 90;
+    bottom: 20px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    z-index: 999;
   }
   .whatsapp-float svg {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
   }
   .whatsapp-tooltip {
     display: none !important;
   }
   .contact-body-exact {
     padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent iOS zoom on form inputs */
+  .c-form-group input,
+  .c-form-group select,
+  .c-form-group textarea {
+    font-size: 16px !important;
   }
 }
 
@@ -5626,5 +5642,98 @@ body:not(.loaded) {
   .c-btn-submit {
     padding: 14px 20px;
     font-size: 0.95rem;
+  }
+
+  /* Ultra-smooth modal responsiveness on small phones */
+  .about-modal-backdrop,
+  .service-modal-backdrop {
+    padding: 8px 6px;
+  }
+  .about-modal-card,
+  .service-modal-card {
+    max-height: 94vh;
+    border-radius: 18px;
+  }
+  .about-modal-header,
+  .service-modal-header {
+    padding: 14px 44px 14px 12px;
+  }
+  .modal-item-row,
+  .s-modal-treatment-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .modal-item-title,
+  .s-modal-item-name {
+    font-size: 13.5px;
+    line-height: 1.35;
+  }
+  .modal-item-desc,
+  .s-modal-item-desc {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .modal-item-year {
+    font-size: 10px;
+    padding: 3px 6px;
+    flex-shrink: 0;
+  }
+
+  /* FAQ Accordion compact padding on small phones */
+  .faq-card-header {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+  .faq-icon-badge {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+  .faq-question-text {
+    font-size: 0.96rem;
+    line-height: 1.3;
+  }
+  .faq-card-answer p {
+    padding: 0 12px 14px 12px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Pre-footer CTA button adjustments */
+  .cta-pill-btn {
+    padding: 13px 20px;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Extreme small screens (older phones / narrow viewports) */
+  .hero-main-title .title-line-dark {
+    font-size: 24px !important;
+  }
+  .hero-main-title .title-line-italic {
+    font-size: 20px !important;
+  }
+  .hero-exp-card {
+    padding: 6px 10px;
+  }
+  .hero-exp-card .exp-number {
+    font-size: 26px;
+  }
+  .hero-exp-card .exp-label {
+    font-size: 10px;
+  }
+  .about-feature-card {
+    padding: 8px 10px;
+    min-height: 70px;
+  }
+  .about-feature-card .card-title-box {
+    font-size: 13px;
+  }
+  .service-ref-card {
+    padding: 18px 14px 16px;
+  }
+  .contact-hero-title {
+    font-size: 1.85rem;
   }
 }
