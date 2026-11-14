@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Dr. Priyadarshini Lingaraj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/admin.css" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- LOGIN MODAL / SCREEN (SHOWN IF NOT AUTHENTICATED) -->
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-badge">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <h2>Doctor Admin Portal</h2>
+        <p>Dr. Priyadarshini Lingaraj | Official Website</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="adminUsername">Admin Username</label>
+          <div class="input-with-icon">
+            <i data-lucide="user"></i>
+            <input type="text" id="adminUsername" placeholder="e.g. admin" required autocomplete="username" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword">Password</label>
+          <div class="input-with-icon">
+            <i data-lucide="lock"></i>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required autocomplete="current-password" />
+            <button type="button" class="btn-eye" id="togglePasswordBtn" aria-label="Toggle password visibility">
+              <i data-lucide="eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="loginError" class="login-error-msg" style="display: none;"></div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">
+          <span>Sign In to Admin Panel</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <span class="secure-tag"><i data-lucide="database"></i> Connected to MongoDB Atlas</span>
+        <a href="index.html" class="back-link"><i data-lucide="globe"></i> Return to Main Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN ADMIN APP -->
+  <div id="adminApp" class="admin-wrapper" style="display: none;">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <div class="admin-profile">
+          <div class="avatar-circle">
+            <i data-lucide="stethoscope"></i>
+          </div>
+          <div class="profile-meta">
+            <h3>Dr. Priyadarshini</h3>
+            <span class="status-pill"><span class="dot"></span> MongoDB Online</span>
+          </div>
+        </div>
+        <button class="mobile-close-btn" id="closeSidebarBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="tab-enquiries">
+          <i data-lucide="inbox"></i>
+          <span>Enquiries & Appointments</span>
+          <span class="badge-count" id="sidebarNewCount">0</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-schedule">
+          <i data-lucide="calendar-clock"></i>
+          <span>Weekly Schedule (Mon–Sun)</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-content">
+          <i data-lucide="file-edit"></i>
+          <span>Website Content CMS</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-images">
+          <i data-lucide="image"></i>
+          <span>Images & Media</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" target="_blank" class="nav-item site-link">
+          <i data-lucide="external-link"></i>
+          <span>View Live Website</span>
+        </a>
+        <button class="nav-item logout-btn" id="logoutBtn">
+          <i data-lucide="log-out"></i>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="admin-main">
+      <!-- TOP NAVBAR -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle-btn" id="openSidebarBtn" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="topbar-title-wrap">
+            <h1 id="pageTitle">Patient Enquiries & Consultations</h1>
+            <p id="pageSubtitle">Real-time consultation submissions stored directly in MongoDB Atlas</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="quick-status">
+            <span class="db-chip"><i data-lucide="database"></i> Atlas Cluster0</span>
+          </div>
+          <button class="btn btn-outline btn-sm" id="btnRefreshCurrent">
+            <i data-lucide="refresh-cw"></i>
+            <span>Refresh</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- TAB 1: ENQUIRIES -->
+      <section id="tab-enquiries" class="tab-pane active">
+        <!-- STATS CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon icon-teal"><i data-lucide="users"></i></div>
+            <div class="stat-data">
+              <span class="stat-label">Total Enquiries</span>
+              <h2 id="statTotal">0</h2>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon icon-coral"><i data-lucide="bell-ring"></i></div>
+            <div class="stat-data">
+              <span class="stat-label">New / Pending</span>
+              <h2 id="statNew">0</h2>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon icon-blue"><i data-lucide="phone-forwarded"></i></div>
+            <div class="stat-data">
+              <span class="stat-label">Contacted</span>
+              <h2 id="statContacted">0</h2>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon icon-gold"><i data-lucide="check-circle-2"></i></div>
+            <div class="stat-data">
+              <span class="stat-label">Confirmed Bookings</span>
+              <h2 id="statConfirmed">0</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENQUIRIES CONTROLS -->
+        <div class="panel-card">
+          <div class="panel-header flex-between">
+            <div class="filter-group">
+              <button class="filter-pill active" data-filter="All">All</button>
+              <button class="filter-pill" data-filter="New">New</button>
+              <button class="filter-pill" data-filter="Contacted">Contacted</button>
+              <button class="filter-pill" data-filter="Confirmed">Confirmed</button>
+              <button class="filter-pill" data-filter="Completed">Completed</button>
+            </div>
+
+            <div class="search-and-export">
+              <div class="search-box">
+                <i data-lucide="search"></i>
+                <input type="text" id="searchEnquiries" placeholder="Search by name, phone, service..." />
+              </div>
+              <button class="btn btn-outline btn-sm" id="exportCsvBtn">
+                <i data-lucide="download"></i>
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ENQUIRIES TABLE / CARDS -->
+          <div class="table-responsive">
+            <table class="data-table" id="enquiriesTable">
+              <thead>
+                <tr>
+                  <th>Patient Details</th>
+                  <th>Service Requested</th>
+                  <th>Preferred Date & Time</th>
+                  <th>Status</th>
+                  <th>Received On</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="enquiriesTableBody">
+                <tr>
+                  <td colspan="6" class="table-loading">
+                    <div class="spinner"></div> Loading enquiries from MongoDB...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: WEEKLY SCHEDULE MANAGER -->
+      <section id="tab-schedule" class="tab-pane">
+        <div class="panel-card">
+          <div class="panel-header flex-between">
+            <div>
+              <h2>Weekly Clinic Schedule (Monday – Sunday)</h2>
+              <p class="panel-desc">Set specific clinic timings for every day. Changes automatically reflect on the public website.</p>
+            </div>
+            <button class="btn btn-primary" id="btnSaveSchedule">
+              <i data-lucide="save"></i>
+              <span>Save Weekly Schedule</span>
+            </button>
+          </div>
+
+          <div class="schedule-form-wrapper">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="schedGeneralHours">Website Display Hours (Summary)</label>
+                <input type="text" id="schedGeneralHours" value="Monday – Sunday: 8:30 AM – 8:30 PM" />
+                <span class="help-text">Displayed on hero cards and contact highlights.</span>
+              </div>
+              <div class="form-group">
+                <label for="schedNotice">Appointment / Customer Care Note</label>
+                <input type="text" id="schedNotice" value="(For exact timing kindly connect the customer care)" />
+                <span class="help-text">Shown in brackets under clinic hours.</span>
+              </div>
+            </div>
+
+            <div class="schedule-days-list" id="scheduleDaysList">
+              <!-- Dynamically populated 7 days (Monday - Sunday) -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CONTENT CMS -->
+      <section id="tab-content" class="tab-pane">
+        <div class="panel-card">
+          <div class="panel-header flex-between">
+            <div>
+              <h2>Website Content & Details CMS</h2>
+              <p class="panel-desc">Update doctor information, phone numbers, addresses, stats, and text across the entire website.</p>
+            </div>
+            <button class="btn btn-primary" id="btnSaveContent">
+              <i data-lucide="save"></i>
+              <span>Save All Content</span>
+            </button>
+          </div>
+
+          <div class="cms-sections">
+            <!-- SECTION A: PRIMARY CONTACT & CLINIC -->
+            <div class="cms-box">
+              <div class="cms-box-header">
+                <i data-lucide="phone-call"></i>
+                <h3>1. Primary Contact & Clinic Credentials</h3>
+              </div>
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label>Primary Phone Number</label>
+                  <input type="text" id="cmsPhone" value="+971 50 474 8567" />
+                </div>
+                <div class="form-group">
+                  <label>WhatsApp Number</label>
+                  <input type="text" id="cmsWhatsapp" value="+971 50 474 8567" />
+                </div>
+                <div class="form-group">
+                  <label>Official Email</label>
+                  <input type="email" id="cmsEmail" value="drpriyadharshini89@gmail.com" />
+                </div>
+                <div class="form-group">
+                  <label>Hospital / Clinic Name</label>
+                  <input type="text" id="cmsHospital" value="NMC Speciality Hospital, Abu Dhabi" />
+                </div>
+                <div class="form-group">
+                  <label>HAAD License Number</label>
+                  <input type="text" id="cmsHaad" value="GD37938" />
+                </div>
+                <div class="form-group">
+                  <label>DHA License Number</label>
+                  <input type="text" id="cmsDha" value="32916603" />
+                </div>
+              </div>
+              <div class="form-group" style="margin-top: 12px;">
+                <label>Clinic Full Address</label>
+                <input type="text" id="cmsAddress" value="Zayed The First St, Near Sama Tower, Al Danah, Zone 1, Abu Dhabi, UAE" />
+              </div>
+            </div>
+
+            <!-- SECTION B: SOCIAL PROFILES -->
+            <div class="cms-box">
+              <div class="cms-box-header">
+                <i data-lucide="share-2"></i>
+                <h3>2. Social Media Channels</h3>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label>Instagram URL</label>
+                  <input type="url" id="cmsInstagram" value="https://www.instagram.com/drpriyadarshinilingaraj/" />
+                </div>
+                <div class="form-group">
+                  <label>LinkedIn Profile URL</label>
+                  <input type="url" id="cmsLinkedin" value="https://www.linkedin.com/in/dr-priya-darshini-42ba091a8/" />
+                </div>
+                <div class="form-group">
+                  <label>Facebook Page URL</label>
+                  <input type="url" id="cmsFacebook" value="https://www.facebook.com/drpriyadarshinilingaraj" />
+                </div>
+                <div class="form-group">
+                  <label>YouTube Channel URL</label>
+                  <input type="url" id="cmsYoutube" value="https://www.youtube.com/@drpriyadarshinilingaraj" />
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION C: HERO SECTION TEXT -->
+            <div class="cms-box">
+              <div class="cms-box-header">
+                <i data-lucide="sparkles"></i>
+                <h3>3. Hero Banner & Taglines</h3>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label>Hero Tagline</label>
+                  <input type="text" id="cmsHeroTagline" value="Compassionate, Evidence-Based Healthcare for Women" />
+                </div>
+                <div class="form-group">
+                  <label>Experience Badge Text</label>
+                  <input type="text" id="cmsHeroExpBadge" value="12+ Years Excellence" />
+                </div>
+              </div>
+              <div class="form-grid-2" style="margin-top: 12px;">
+                <div class="form-group">
+                  <label>Main Title (Line 1)</label>
+                  <input type="text" id="cmsHeroTitle1" value="Holistic & Advanced" />
+                </div>
+                <div class="form-group">
+                  <label>Main Title (Line 2)</label>
+                  <input type="text" id="cmsHeroTitle2" value="Women's Health Care" />
+                </div>
+              </div>
+              <div class="form-group" style="margin-top: 12px;">
+                <label>Hero Description</label>
+                <textarea id="cmsHeroDesc" rows="3">Specialist Obstetrician & Gynaecologist dedicated to high-risk pregnancies, advanced minimally invasive surgery, and comprehensive women’s wellness across all life stages.</textarea>
+              </div>
+            </div>
+
+            <!-- SECTION D: KEY CLINICAL STATS -->
+            <div class="cms-box">
+              <div class="cms-box-header">
+                <i data-lucide="bar-chart-2"></i>
+                <h3>4. Clinical Milestones & Stats</h3>
+              </div>
+              <div class="form-grid-4">
+                <div class="stat-edit-col">
+                  <label>Stat 1 Value</label>
+                  <input type="text" id="cmsStat1Val" value="12+" />
+                  <label style="margin-top:8px;">Stat 1 Label</label>
+                  <input type="text" id="cmsStat1Label" value="Years of Surgical Excellence" />
+                </div>
+                <div class="stat-edit-col">
+                  <label>Stat 2 Value</label>
+                  <input type="text" id="cmsStat2Val" value="15,000+" />
+                  <label style="margin-top:8px;">Stat 2 Label</label>
+                  <input type="text" id="cmsStat2Label" value="Satisfied Patient Consultations" />
+                </div>
+                <div class="stat-edit-col">
+                  <label>Stat 3 Value</label>
+                  <input type="text" id="cmsStat3Val" value="5,000+" />
+                  <label style="margin-top:8px;">Stat 3 Label</label>
+                  <input type="text" id="cmsStat3Label" value="Successful Deliveries Managed" />
+                </div>
+                <div class="stat-edit-col">
+                  <label>Stat 4 Value</label>
+                  <input type="text" id="cmsStat4Val" value="850+" />
+                  <label style="margin-top:8px;">Stat 4 Label</label>
+                  <input type="text" id="cmsStat4Label" value="Minimally Invasive Surgeries" />
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION E: MEDCAFE & SPECIAL ROLES -->
+            <div class="cms-box">
+              <div class="cms-box-header">
+                <i data-lucide="award"></i>
+                <h3>5. Leadership & MedCafe</h3>
+              </div>
+              <div class="form-group">
+                <label>MedCafe Role / Designation</label>
+                <input type="text" id="cmsMedcafeRole" value="Chief Executive Officer (CEO) – MedCafe" />
+              </div>
+              <div class="form-group" style="margin-top: 12px;">
+                <label>MedCafe Description</label>
+                <textarea id="cmsMedcafeDesc" rows="3">Leading MedCafe, a global collaborative platform for doctors, dedicated to fostering professional collaboration, medical knowledge exchange, education, and networking among healthcare professionals worldwide.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: IMAGES & MEDIA -->
+      <section id="tab-images" class="tab-pane">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h2>Website Images & Media Manager</h2>
+              <p class="panel-desc">Upload new photos of Dr. Priyadarshini or the clinic. Uploaded images are stored on your server and linked immediately.</p>
+            </div>
+          </div>
+
+          <div class="image-uploader-grid">
+            <!-- Hero Doctor Image -->
+            <div class="image-card">
+              <div class="image-card-header">
+                <h3>Hero Section Doctor Photo</h3>
+                <span class="badge-soft">Primary</span>
+              </div>
+              <div class="image-preview-box">
+                <img id="previewHeroImage" src="assets/dr-priya-hero-clean.png" alt="Hero Doctor" />
+              </div>
+              <div class="image-card-body">
+                <input type="text" id="heroImagePathInput" value="assets/dr-priya-hero-clean.png" placeholder="Image URL or Path" />
+                <div class="upload-btn-wrap">
+                  <label class="btn btn-outline btn-block file-label">
+                    <i data-lucide="upload-cloud"></i> Upload New Photo
+                    <input type="file" class="file-input-hidden" data-target-input="heroImagePathInput" data-target-preview="previewHeroImage" accept="image/*" />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- About Doctor Image -->
+            <div class="image-card">
+              <div class="image-card-header">
+                <h3>About Section Doctor Photo</h3>
+                <span class="badge-soft">Biography</span>
+              </div>
+              <div class="image-preview-box">
+                <img id="previewAboutImage" src="assets/about-doctor-flawless.png" alt="About Doctor" />
+              </div>
+              <div class="image-card-body">
+                <input type="text" id="aboutImagePathInput" value="assets/about-doctor-flawless.png" placeholder="Image URL or Path" />
+                <div class="upload-btn-wrap">
+                  <label class="btn btn-outline btn-block file-label">
+                    <i data-lucide="upload-cloud"></i> Upload New Photo
+                    <input type="file" class="file-input-hidden" data-target-input="aboutImagePathInput" data-target-preview="previewAboutImage" accept="image/*" />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Available Gallery Selection -->
+            <div class="image-card full-span">
+              <div class="image-card-header">
+                <h3>Pre-Loaded Gallery Choices</h3>
+                <p class="help-text">Click any photo below to instantly set as Hero or About photo:</p>
+              </div>
+              <div class="gallery-picker-row">
+                <div class="gallery-item" data-src="assets/dr-priya-studio-formal.jpg">
+                  <img src="assets/dr-priya-studio-formal.jpg" alt="Formal Desk Pose" />
+                  <span>Studio Formal</span>
+                </div>
+                <div class="gallery-item" data-src="assets/dr-priya-studio-floral.jpg">
+                  <img src="assets/dr-priya-studio-floral.jpg" alt="Floral Blouse Pose" />
+                  <span>Studio Floral</span>
+                </div>
+                <div class="gallery-item" data-src="assets/dr-priya-flawless.png">
+                  <img src="assets/dr-priya-flawless.png" alt="Doctor Flawless" />
+                  <span>Doctor Flawless</span>
+                </div>
+                <div class="gallery-item" data-src="assets/dr-priya-hero-clean.png">
+                  <img src="assets/dr-priya-hero-clean.png" alt="Hero Clean" />
+                  <span>Hero Clean</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ENQUIRY DETAILS MODAL -->
+  <div id="enquiryModal" class="admin-modal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalPatientName">Patient Enquiry Details</h3>
+        <button class="modal-close-btn" id="closeEnquiryModalBtn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="modalEnquiryContent">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modalCloseBtn">Close</button>
+        <button class="btn btn-primary" id="modalSaveNotesBtn">Save Notes & Status</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

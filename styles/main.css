@@ -5737,3 +5737,232 @@ body:not(.loaded) {
     font-size: 1.85rem;
   }
 }
+
+
+/* ─── WEEKLY CLINIC SCHEDULE MODAL (MONDAY – SUNDAY) ─── */
+.btn-view-schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: #E5F2EC;
+  color: #1A4B43;
+  border: 1px solid #B8DDD0;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-view-schedule:hover {
+  background: #1A4B43;
+  color: #FFFFFF;
+  border-color: #1A4B43;
+}
+
+.weekly-schedule-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 45, 40, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.weekly-schedule-card {
+  background: #FAF7F2;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  border: 1.5px solid #E6DBCF;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.ws-header {
+  padding: 22px 26px 16px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #ECE3D7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ws-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ws-title-wrap i {
+  width: 26px;
+  height: 26px;
+  color: #237367;
+}
+
+.ws-title-wrap h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  color: #1A4B43;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ws-close {
+  background: #F4EBE1;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1A4B43;
+  transition: all 0.2s;
+}
+
+.ws-close:hover {
+  background: #D98282;
+  color: #FFFFFF;
+}
+
+.ws-notice {
+  padding: 10px 26px;
+  font-size: 0.84rem;
+  color: #6C7787;
+  background: #F4EBE1;
+  border-bottom: 1px solid #ECE3D7;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.ws-days-table {
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 52vh;
+  overflow-y: auto;
+}
+
+.ws-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 16px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #ECE3D7;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.ws-day-row.ws-today {
+  border-color: #237367;
+  background: #EAF4F0;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(35, 115, 103, 0.1);
+}
+
+.ws-day-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1A4B43;
+}
+
+.ws-today-pill {
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  background: #237367;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ws-day-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ws-time-text {
+  font-weight: 600;
+  color: #2C3E50;
+  font-size: 0.88rem;
+}
+
+.ws-status-badge {
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.ws-status-open {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.ws-status-closed {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.ws-footer {
+  padding: 16px 22px 20px;
+  background: #FFFFFF;
+  border-top: 1px solid #ECE3D7;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ws-emergency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #7A4B27;
+  background: #FDF6EE;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #F3DFC6;
+}
+
+.ws-btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ws-btn-wa:hover {
+  background: #1EBE5D;
+}
