@@ -4,7 +4,14 @@
  */
 
 // API Base URL - works whether hosted locally, with custom domain, or proxy
-const API_BASE = window.location.origin;
+let customApi = localStorage.getItem('dr_priya_backend_url') || '';
+let API_BASE = window.location.origin;
+
+// Auto-detect GitHub Pages environment
+const isGitHubPages = window.location.hostname.includes('github.io');
+if (isGitHubPages) {
+  API_BASE = customApi || 'http://localhost:5000';
+}
 
 let adminToken = localStorage.getItem('dr_priya_admin_token') || '';
 let currentEnquiries = [];
@@ -84,6 +91,19 @@ function showToast(message, type = 'success') {
 // AUTHENTICATION
 // ─────────────────────────────────────────────────────────────
 function setupAuthEvents() {
+  if (isGitHubPages) {
+    const notice = document.getElementById('githubPagesNotice');
+    if (notice) notice.style.display = 'block';
+
+    const apiGroup = document.getElementById('backendApiGroup');
+    if (apiGroup) apiGroup.style.display = 'block';
+
+    const apiInput = document.getElementById('backendApiInput');
+    if (apiInput && customApi) {
+      apiInput.value = customApi;
+    }
+  }
+
   togglePasswordBtn.addEventListener('click', () => {
     const isPass = adminPassword.type === 'password';
     adminPassword.type = isPass ? 'text' : 'password';
@@ -94,6 +114,13 @@ function setupAuthEvents() {
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     loginError.style.display = 'none';
+
+    // If custom API was entered
+    const customApiVal = document.getElementById('backendApiInput')?.value?.trim();
+    if (customApiVal) {
+      API_BASE = customApiVal.replace(/\/+$/, '');
+      localStorage.setItem('dr_priya_backend_url', API_BASE);
+    }
 
     const submitBtn = document.getElementById('loginSubmitBtn');
     submitBtn.disabled = true;
@@ -121,7 +148,17 @@ function setupAuthEvents() {
         loginError.style.display = 'block';
       }
     } catch (err) {
-      loginError.textContent = 'Network or server error. Please ensure backend is running.';
+      if (isGitHubPages) {
+        loginError.innerHTML = `
+          <div style="font-weight: 700; margin-bottom: 4px;">Backend Not Connected on GitHub Pages</div>
+          <p style="font-size: 0.82rem; margin-bottom: 8px;">GitHub Pages cannot run Node.js or MongoDB directly. Your Node.js server is running locally on this computer.</p>
+          <a href="http://localhost:5000/admin.html" style="display: inline-block; background: #1A4B43; color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 0.82rem;">
+            👉 Open Localhost Admin (http://localhost:5000/admin.html)
+          </a>
+        `;
+      } else {
+        loginError.textContent = 'Network or server error. Please ensure backend is running.';
+      }
       loginError.style.display = 'block';
     } finally {
       submitBtn.disabled = false;

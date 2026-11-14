@@ -26,6 +26,19 @@
         <p>Dr. Priyadarshini Lingaraj | Official Website</p>
       </div>
 
+      <!-- GITHUB PAGES NOTICE (SHOWN AUTOMATICALLY IF HOSTED ON GITHUB PAGES) -->
+      <div id="githubPagesNotice" style="display: none; background: #FFFBEB; border: 1.5px solid #FCD34D; border-radius: 12px; padding: 14px 16px; margin-bottom: 22px; text-align: left; font-size: 0.84rem; color: #92400E;">
+        <div style="font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <i data-lucide="alert-triangle" style="width: 18px; height: 18px; color: #D97706;"></i>
+          <span>GitHub Pages Notice</span>
+        </div>
+        <p style="margin-bottom: 10px; line-height: 1.4;">GitHub Pages is a static host. The Node.js MongoDB backend is running on your computer at <strong>http://localhost:5000</strong>.</p>
+        <a href="http://localhost:5000/admin.html" class="btn btn-primary btn-sm btn-block" style="text-decoration: none; padding: 9px 14px; font-size: 0.84rem;">
+          <i data-lucide="external-link"></i>
+          <span>Open Local Admin Panel (localhost:5000)</span>
+        </a>
+      </div>
+
       <form id="loginForm" class="login-form">
         <div class="form-group">
           <label for="adminUsername">Admin Username</label>
@@ -43,6 +56,17 @@
             <button type="button" class="btn-eye" id="togglePasswordBtn" aria-label="Toggle password visibility">
               <i data-lucide="eye"></i>
             </button>
+          </div>
+        </div>
+
+        <div class="form-group" id="backendApiGroup" style="display: none;">
+          <label for="backendApiInput" style="display: flex; justify-content: space-between;">
+            <span>Backend API Server URL</span>
+            <span style="font-size: 0.72rem; color: #64748B; text-transform: none;">(Cloud or Localhost)</span>
+          </label>
+          <div class="input-with-icon">
+            <i data-lucide="server"></i>
+            <input type="url" id="backendApiInput" placeholder="http://localhost:5000" />
           </div>
         </div>
 

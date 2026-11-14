@@ -399,3 +399,5 @@ mongoose.connect(MONGODB_URI)
       console.log(`⚠️ Server running without MongoDB on port ${PORT}`);
     });
   });
+
+module.exports = app;
